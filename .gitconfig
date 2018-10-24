@@ -1,0 +1,30 @@
+[user]
+	email = jay.harris@outlook.co.nz
+	name = Jay Harris
+[http]
+	cookiefile = /usr/local/google/home/harrisjay/.gitcookies
+[branch]
+	autosetupmerge = always
+[diff]
+    tool = vscode
+[alias]
+    du = diff @{u}
+    amend = commit --amend --no-edit
+    rh = reset --hard
+    s = status
+    m = map-branches -vv
+[difftool]
+    prompt = false
+[difftool "vscode"]
+    cmd = code \"$LOCAL\" \"$REMOTE\" --diff --wait
+    trustExitCode = false
+[merge]
+	tool = vscode
+	ff = false
+[mergetool "vscode"]
+    keepBackup = false
+    prompt = false
+	cmd = code \"$MERGED\"
+    trustExitCode = false
+[pull]
+	ff = only
