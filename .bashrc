@@ -104,9 +104,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH="$PATH:$HOME/chrome/depot_tools:$HOME/.cargo/bin:$HOME/Downloads/node-v10.12.0-linux-x64/bin"
+export PATH="$PATH:$HOME/chrome/depot_tools:$HOME/.cargo/bin:$HOME/Downloads/node-v10.12.0-linux-x64/bin:$HOME/.npm-packages/bin"
 export GOMA_DIR="$HOME/goma"
-export EDITOR="code --wait"
+export EDITOR="code --wait --goto"
 
 # Eternal bash history.
 # ---------------------
@@ -125,3 +125,15 @@ PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # Helpers for Build + Run
 alias build="autoninja -C out/${1-Default} chrome"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/usr/local/google/home/harrisjay/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/usr/local/google/home/harrisjay/Downloads/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/usr/local/google/home/harrisjay/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/usr/local/google/home/harrisjay/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+
+#Add chromium tools to path
+export PATH="$PATH:/usr/local/google/home/harrisjay/chrome/chromium-tools"
+
+#Install chromium tools auto completions
+source /usr/local/google/home/harrisjay/chrome/chromium-tools/.bash_completions

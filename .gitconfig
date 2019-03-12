@@ -8,11 +8,13 @@
 [diff]
     tool = vscode
 [alias]
-    du = diff @{u}
+    d = diff --dst-prefix=
+    du = diffq @{u}
     amend = commit --amend --no-edit
     rh = reset --hard
     s = status
     m = map-branches -vv
+    
 [difftool]
     prompt = false
 [difftool "vscode"]
